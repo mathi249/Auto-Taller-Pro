@@ -288,12 +288,17 @@ export default function App() {
   const [vista, setVista]         = useState("lista");
   const [toast, setToast]         = useState(null);
 
-  useEffect(() => { if (tallerActivo) setRegistros(loadData(tallerActivo.id)); }, [tallerActivo]);
   useEffect(() => { if (tallerActivo) saveData(tallerActivo.id, registros); }, [registros, tallerActivo]);
 
   const showToast = (msg, type = "ok") => { setToast({ msg, type }); setTimeout(() => setToast(null), 2800); };
 
-  if (!tallerActivo) return <LoginScreen onLogin={t => { setTallerActivo(t); }} />;
+  const handleLogin = (taller) => {
+    const datos = loadData(taller.id);
+    setRegistros(datos);
+    setTallerActivo(taller);
+  };
+
+  if (!tallerActivo) return <LoginScreen onLogin={handleLogin} />;
 
   const filtered = registros.filter(r => {
     const q = busqueda.toLowerCase();
