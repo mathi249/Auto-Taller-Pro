@@ -6,6 +6,7 @@ const TALLERES = [
   { id: "taller1", nombre: "Taller El Motor", clave: "motor123" },
   { id: "taller2", nombre: "Mecánica Los Andes", clave: "andes456" },
   { id: "taller3", nombre: "Auto Service Norte", clave: "norte789" },
+  { id: "taller4", nombre: "Maty Passot",         clave: "maty123" },
 ];
 
 // ─── helpers ────────────────────────────────────────────────
